@@ -1,59 +1,38 @@
 package com.example.daan.restaurant;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class MenuActivity extends AppCompatActivity {
-    public class MenuItem{
-        private String name,description,imageUrl,category;
-        private Integer price;
+import java.util.ArrayList;
 
-        //Getters & Setters
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getImageUrl() {
-            return imageUrl;
-        }
-
-        public void setImageUrl(String imageUrl) {
-            this.imageUrl = imageUrl;
-        }
-
-        public String getCategory() {
-            return category;
-        }
-
-        public void setCategory(String category) {
-            this.category = category;
-        }
-
-        public Integer getPrice() {
-            return price;
-        }
-
-        public void setPrice(Integer price) {
-            this.price = price;
-        }
-    }
+public class MenuActivity extends AppCompatActivity implements MenuItemsRequest.Callback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Intent intent = getIntent();
+        String category = intent.getStringExtra("category");
+        MenuItemsRequest x = new MenuItemsRequest(this);
+        x.getMenuItems(this, category);
+
+    }
+
+    @Override
+    public void gotMenuItems(ArrayList<MenuItem> menuItems) {
+        //Toast.makeText(this, menuItems.get(0), Toast.LENGTH_LONG).show();
+        MenuItemAdapter itemsAdapter = new MenuItemAdapter(this, R.layout.menu_item, menuItems);
+        ListView food_list = findViewById(R.id.menu_List);
+        food_list.setAdapter(itemsAdapter);
+    }
+
+    @Override
+    public void gotMenuItemsError(String message) {
+
     }
 
 }

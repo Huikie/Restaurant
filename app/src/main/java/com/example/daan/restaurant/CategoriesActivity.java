@@ -1,5 +1,6 @@
 package com.example.daan.restaurant;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,13 +18,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
-public class CategoriesActivity extends AppCompatActivity implements CategoriesRequest.Callback, AdapterView.OnItemClickListener {
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    }
+public class CategoriesActivity extends AppCompatActivity implements CategoriesRequest.Callback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,20 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesR
         CategoriesRequest x = new CategoriesRequest(this);
         x.getCategories(this);
         //Toast.makeText(this, "Started", Toast.LENGTH_SHORT).show();
+        ListView categories_list = findViewById(R.id.categories_List);
 
+
+        categories_list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int i = position;
+                Object category = parent.getItemAtPosition(i);
+                Intent intent = new Intent(CategoriesActivity.this, MenuActivity.class);
+                intent.putExtra("category", category.toString());
+                startActivity(intent);
+            }
+        });
     }
-
     @Override
     public void gotCategories(ArrayList<String> categories) {
         //Toast.makeText(this, categories.get(0), Toast.LENGTH_LONG).show();
