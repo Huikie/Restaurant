@@ -3,6 +3,8 @@ package com.example.daan.restaurant;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,6 +21,19 @@ public class MenuActivity extends AppCompatActivity implements MenuItemsRequest.
         String category = intent.getStringExtra("category");
         MenuItemsRequest x = new MenuItemsRequest(this);
         x.getMenuItems(this, category);
+
+        ListView menu_item_List = findViewById(R.id.menu_List);
+
+        menu_item_List.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int i = position;
+                MenuItem clickedMenuItem = (MenuItem) parent.getItemAtPosition(i);
+                Intent intent = new Intent(MenuActivity.this, MenuItemActivity.class);
+                intent.putExtra("clicked_MenuItem", clickedMenuItem);
+                startActivity(intent);
+            }
+        });
 
     }
 

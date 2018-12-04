@@ -1,6 +1,8 @@
 package com.example.daan.restaurant;
 
-public class MenuItem {
+import java.io.Serializable;
+
+public class MenuItem implements Serializable {
     private String name,description,imageUrl,category, price;
 
     public MenuItem(String name, String description, String imageUrl, String category, String price) {

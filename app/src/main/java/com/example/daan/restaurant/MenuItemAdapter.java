@@ -36,10 +36,11 @@ public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
         TextView food_price = convertView.findViewById(R.id.price);
         String price = menuItem.get(index).getPrice();
         String name = menuItem.get(index).getName();
-        // Used Picasso to get the images from the web and put them in an ImageView
-        // http://square.github.io/picasso/
+
+        // I used Picasso to get the images from the web and put them in an ImageView (http://square.github.io/picasso/)
         String image_link = menuItem.get(index).getImageUrl();
         Picasso.get().load(image_link).into(image);
+
         food_title.setText(name);
         food_price.setText(price);
         return convertView;
