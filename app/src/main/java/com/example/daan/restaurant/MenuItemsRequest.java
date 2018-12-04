@@ -53,7 +53,7 @@ public class MenuItemsRequest implements Response.Listener<JSONObject>, Response
                 String price = category.getString("price");
                 String image_url = category.getString("image_url");
                 String name = category.getString("name");
-                menuItems.add(new MenuItem(name, description, image_url, category.toString(), price));
+                menuItems.add(new MenuItem(name, description, image_url, category.toString(), "€" + price));
 
             }
             callback_activity.gotMenuItems(menuItems);
