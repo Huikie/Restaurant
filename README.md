@@ -7,6 +7,6 @@ Restaurant is an app that will help users look at a restaurant’s menu and view
 
 ## Screenshots of the app
 ![](https://github.com/Huikie/Restaurant/blob/master/doc/categories.png)
-![](https://github.com/Huikie/Restaurant/blob/master/doc/menuitems.png)
+![](https://github.com/Huikie/Restaurant/blob/master/doc/menu_items.png)
 ![](https://github.com/Huikie/Restaurant/blob/master/doc/single_menuitem.png)
 
