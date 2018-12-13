@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class MenuItemAdapter extends ArrayAdapter<MenuItem> {
     ArrayList<MenuItem> menuItem;
-
     //Constructor
     public MenuItemAdapter(@NonNull Context context, int resource, @NonNull ArrayList<MenuItem> objects) {
         super(context, resource, objects);
