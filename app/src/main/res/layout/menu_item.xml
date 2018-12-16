@@ -8,9 +8,11 @@
 
     <ImageView
         android:id="@+id/food_Image"
-        android:layout_width="95dp"
-        android:layout_height="95dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_gravity="center|start"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
         android:padding="5dp" />
 
     <TextView
@@ -27,5 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|end"
         android:gravity="center"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textStyle="italic" />
 </LinearLayout>

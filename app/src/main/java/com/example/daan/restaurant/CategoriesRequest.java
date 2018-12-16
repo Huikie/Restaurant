@@ -19,15 +19,19 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
     Callback callback_activity;
     ArrayList<String> categories = new ArrayList<>();
 
+    /**Method that makes it possible to do a callback from a different activity.*/
     public interface Callback {
         void gotCategories(ArrayList<String> categories);
         void gotCategoriesError(String message);
     }
 
+    // Constructor
     public CategoriesRequest(Context context){
         this.context = context;
     }
 
+    /**This method will attempt to retrieve the categories from the API, and if succesful, will notify the
+     * activity that instantiated the request that it is done through the callback. */
     public void getCategories(Callback activity){
         callback_activity = activity;
         String json_url = "https://resto.mprog.nl/categories";
@@ -37,22 +41,30 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
     }
 
     @Override
+    /**When something goes wrong with getting the categories this method display an error message.*/
     public void onErrorResponse(VolleyError error) {
         callback_activity.gotCategoriesError(error.getMessage());
     }
 
     @Override
+    /**When everything goes as expected the response parameter will contain a JSONObject.*/
     public void onResponse(JSONObject response) {
             try{
+                // Get array with menu categories out of JSONObject.
                 JSONArray jsonArray = response.getJSONArray("categories");
 
+                // Add every item in that array to the categories ArrayList<String>.
                 for (int i = 0; i < jsonArray.length(); i++){
                     categories.add(jsonArray.getString(i));
                 }
+
+                // Pass the ArrayList back to the activity that wanted to have it.
                 callback_activity.gotCategories(categories);
+
             }
             catch(JSONException e){
                 System.out.println(e.toString());
             }
     }
+
 }

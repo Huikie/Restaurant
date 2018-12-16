@@ -12,13 +12,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/detail_Image"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:adjustViewBounds="true"
         android:padding="12dp" />
 
     <TextView
@@ -35,5 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:textStyle="italic" />
 </LinearLayout>

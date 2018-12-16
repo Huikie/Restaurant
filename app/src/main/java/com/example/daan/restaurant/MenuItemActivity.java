@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
 
 public class MenuItemActivity extends AppCompatActivity {
     @Override
@@ -16,6 +15,7 @@ public class MenuItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_item);
 
+        // Get clicked MenuItem
         Intent intent = getIntent();
         final MenuItem retrievedMenuItem = (MenuItem) intent.getSerializableExtra("clicked_MenuItem");
 
@@ -24,6 +24,7 @@ public class MenuItemActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.detail_Description);
         TextView price = findViewById(R.id.detail_Price);
 
+        // Fill the right View with right elements from the MenuItem.
         title.setText(retrievedMenuItem.getName());
         Picasso.get().load(retrievedMenuItem.getImageUrl()).into(food_image);
         description.setText(retrievedMenuItem.getDescription());

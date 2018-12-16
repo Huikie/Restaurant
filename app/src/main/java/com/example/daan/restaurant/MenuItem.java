@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class MenuItem implements Serializable {
     private String name,description,imageUrl,category, price;
 
+    // Constructor.
     public MenuItem(String name, String description, String imageUrl, String category, String price) {
         this.name = name;
         this.description = description;
@@ -13,6 +14,7 @@ public class MenuItem implements Serializable {
         this.price = price;
     }
 
+    // Getters & setters.
     public String getName() {
         return name;
     }
@@ -33,9 +35,6 @@ public class MenuItem implements Serializable {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 
     public String getCategory() {
         return category;
