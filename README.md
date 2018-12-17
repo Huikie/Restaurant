@@ -6,7 +6,7 @@ Restaurant is an app that will help users look at a restaurant’s menu and view
 ## Implemented extra's
 - I put some extra time in making the layout look nice, by making the price italic, the title bold and rescaling the images.
 
-This extra is shown in the section "Screenshots of the app".
+This extra is shown in the section "Screenshots of the app" (second image & third image).
 
 ## Screenshots of the app
 ![](https://github.com/Huikie/Restaurant/blob/master/doc/categories.png)
